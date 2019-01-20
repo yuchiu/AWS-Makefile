@@ -1,5 +1,5 @@
 #
-# Makefile for AWS Infrastructure setup
+# Makefile for AWS Infrastructure setup & configuration
 #
 
 PREFIX := $(HOME)/local
