@@ -1,20 +1,22 @@
 #!/bin/bash
 
-# Install Required Packages on Your Unix/Linux System
+# Install Required Packages on Unix/Linux System
 PREFIX=${PREFIX:-${HOME}/local}
 
 PYTHON_PACKAGES=${PYTHON_PACKAGES:-"awscli aws-shell boto boto3 bokeh paramiko \
 shapely bytebuffer jmespath-terminal ansible flexx docker docker-py docker-compose"}
 
+PACKER_VERSION=${PACKER_VERSION:-0.12.2}
+TERRAFORM_VERSION=${TERRAFORM_VERSION:-0.8.7}
+
 # Install Python Packages
 echo "Installing Python Packages: ${PYTHON_PACKAGES}..."
 sudo pip3 install -U ${PYTHON_PACKAGES}
-PACKER_VERSION=${PACKER_VERSION:-0.12.2}
-TERRAFORM_VERSION=${TERRAFORM_VERSION:-0.8.7}
+
 # Install Packer
-echo "Installing Packer..."
 PACKER_URL="https://releases.hashicorp.com/packer/${PACKER_VERSION}"
 PACKER_BIN=$(command -v packer)
+echo "Installing Packer..."
 
 if [ ! -z "${PACKER_BIN}" ]; then
     echo "Packer $(packer -v) already installed at ${PACKER_BIN}, skip..."
