@@ -13,11 +13,16 @@ help:
 	@echo "usage: make <action>"
 	@echo "Available actions are:"
 	@echo "  prepare      install prerequisite software packages"
+	@echo "  configure    configure AWS environment"
 	@echo "  version      show tools version"
 
 .PHONY: prepare
 prepare:
 	@cd scripts/ && PREFIX=$(PREFIX) ./install_packages.sh
+
+.PHONY: configure
+configure:
+	@cd scripts/ && ./configure.sh
 
 version:
 	@python3 --version
